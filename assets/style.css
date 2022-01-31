@@ -1,0 +1,231 @@
+/* 
+    ************ CSS for all components ************
+*/
+/* 
+    CSS variables defined here for colors. 
+    Learn about CSS variables
+        https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+    They are accessed by var(--text-color)
+*/
+:root {
+  --text-color: black;
+  --tab-color: white;
+}
+
+/* Add background color to entire app */
+body {
+  background-color: white;
+}
+
+#Navbar {
+  color: white;
+  font-size: 1.2rem;
+  padding: 0;
+}
+
+#update-date {
+  text-align: right;
+}
+
+/* 
+    Area just below navbar.
+    Has "Coronavirus Forecasting Dashboard" h3 header in it
+*/
+
+/* 
+    ******************** Main container for dashboard ********************
+    1. Uses CSS grid (display: grid)
+    2. Four main components
+        a. Cards on far left
+        b. Data tables on left 
+        c. Graphs on top right
+        d. Map on bottom right
+*/
+
+/* Grid columns are set to 98% of visible area */
+#grid-container {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 12vw 45vw 40vw;
+  grid-template-rows: 45vh 40vh;
+
+  column-gap: 15px;
+  row-gap: 15px;
+
+  grid-template-areas:
+    "cards tables graphs"
+    "cards tables maps";
+}
+
+/* 
+    Dash data table representing entire left side of dashboard. 
+    CSS is handled in dashboard.py in DataTable(...)
+*/
+#table-tabs {
+  grid-area: tables;
+}
+
+/* 
+    Dash DataTable and Bootstrap both use the class "row". 
+    Bootstrap uses negative margin and cuts off edge of table.
+    We set this margin back to 0 here. See issue below.
+    https://github.com/facultyai/dash-bootstrap-components/issues/334
+*/
+.dash-table-container .row {
+  margin: 10px;
+}
+
+/* 
+    Top right portion of dashboard containing the 
+    three graphs - cumulative, daily, and weekly
+*/
+#graph-tabs {
+  grid-area: graphs;
+}
+
+/* 
+    Due to bug in dash, we must manually expand height of graphs,
+    but subtract off the height of the tabs.
+ */
+.top-graphs {
+  height: calc(45vh - 40px);
+}
+
+/* 
+    Bottom right portion of dashboard containing world and USA map
+*/
+#map-div {
+  grid-area: maps;
+}
+
+/* 
+    *********************** Radio buttons for map ***********************
+*/
+/* Make radio buttons display horizontally with flexbox */
+#map-radio-items {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--tab-color);
+  color: var(--text-color);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 2em;
+}
+
+/* Make text bolder when selected and change color to white  */
+.label-radio-checked {
+  color: black;
+  font-weight: 800;
+}
+
+/* Change radio button checked color */
+.label-radio-checked::before {
+  background-color: var(--text-color) !important;
+}
+
+/* 
+    **************************** Tab styling ****************************
+*/
+
+/* 
+   Dash does not automatically center text after resizing tabs.
+   Must do it manually here with a flexbox.
+*/
+.single-tab {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: var(--text-color);
+  height: 40px;
+}
+
+/* 
+    Make text larger and white when tab is selected
+    so that it's obvious that it's selected. 
+*/
+.single-tab--selected {
+  color: black !important;
+  font-size: larger;
+}
+
+/* 
+    Round edges of some tabs
+*/
+#world-tab,
+#cumulative-tab {
+  border-top-left-radius: 15px;
+}
+
+#usa-tab,
+#weekly-tab {
+  border-top-right-radius: 15px;
+}
+
+/* hack to add border radius to graphs */
+.main-svg {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+/* 
+    ******************* Side cards for worldwide totals *******************
+*/
+#all-side-cards {
+  grid-area: cards;
+}
+
+.side-card {
+  margin-bottom: 10px;
+  margin-left: 15px;
+  text-align: center;
+  background-color: white;
+  color: black;
+}
+
+.side-card-header {
+  color: white;
+  background-color: #303485 !important;
+}
+
+/* 
+    ***************** CSS for screen width under 1000px *****************
+    Make grid a single vertical column
+*/
+@media only screen and (max-width: 1000px) {
+  #grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+
+    grid-template-areas:
+      "tables"
+      "graphs"
+      "maps"
+      "cards";
+
+    row-gap: 10px;
+  }
+
+  .top-graphs {
+    height: 90vh;
+    margin-right: 0px;
+  }
+
+  #usa-tab,
+  #weekly-tab {
+    border-radius: 0px;
+  }
+
+  #world-tab,
+  #cumulative-tab {
+    border-top-right-radius: 15px;
+  }
+
+  /* Set both headers to same font size */
+  .top-info h3,
+  h4 {
+    font-size: 1.3em;
+  }
+}
