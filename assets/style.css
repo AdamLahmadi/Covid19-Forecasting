@@ -1,12 +1,7 @@
 /* 
     ************ CSS for all components ************
 */
-/* 
-    CSS variables defined here for colors. 
-    Learn about CSS variables
-        https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
-    They are accessed by var(--text-color)
-*/
+
 :root {
   --text-color: black;
   --tab-color: white;
@@ -65,12 +60,7 @@ body {
   grid-area: tables;
 }
 
-/* 
-    Dash DataTable and Bootstrap both use the class "row". 
-    Bootstrap uses negative margin and cuts off edge of table.
-    We set this margin back to 0 here. See issue below.
-    https://github.com/facultyai/dash-bootstrap-components/issues/334
-*/
+
 .dash-table-container .row {
   margin: 10px;
 }
