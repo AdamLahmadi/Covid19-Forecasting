@@ -24,4 +24,4 @@ It is highly recommended that you create a virtual environment dedicated to this
   2. run `python update.py`
   3. run `python dashboard.py`
 
-![Alt Text](Readme/run \dashboard.png)
+![Alt Text](Readme/run_dashboard.png)
