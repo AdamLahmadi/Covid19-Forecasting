@@ -1,1 +1,2 @@
-# Covid-Tracker-Website
+# Covid-Tracker
+
