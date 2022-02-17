@@ -7,7 +7,7 @@ The website http://mycoviddashboard.pythonanywhere.com/ is updated daily.
 
 Pyhton 3.7 or above
 
-## Installation 
+## Installation of the packages
 
 It is highly recommended that you create a virtual environment dedicated to this project.
 
@@ -18,3 +18,10 @@ It is highly recommended that you create a virtual environment dedicated to this
   5. Run `pip install wheel` to install the wheel package, which helps install the other packages
   6. Run `pip install -r requirements.txt` to install all the necessary packages into this environment
 
+## Launching the dashboard 
+
+  1. `cd` into the project directory
+  2. run `python update.py`
+  3. run `python dashboard.py`
+
+![Alt Text](Readme/run \dashboard.png)
