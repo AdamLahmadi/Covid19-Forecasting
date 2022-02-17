@@ -2,6 +2,7 @@
 
 This is an interactive website that tracks, models and predicts COVID-19 Cases. 
 The website http://mycoviddashboard.pythonanywhere.com/ is updated daily. 
+We are using the John Hopkins DataSet that can be found at: https://github.com/CSSEGISandData/COVID-19
 
 ## Requirements
 
@@ -25,3 +26,14 @@ It is highly recommended that you create a virtual environment dedicated to this
   3. run `python dashboard.py`
 
 ![Alt Text](Readme/run_dashboard.png)
+
+Input the address http://127.0.0.1:8050/, you should be able to see the dashboard. 
+If error messages occur, try refreshing the page. 
+
+##Quick Overview of the Website 
+
+
+![Alt Text](Readme/website_gif.gif)
+
+
+
