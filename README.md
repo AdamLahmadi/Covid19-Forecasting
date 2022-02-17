@@ -30,7 +30,7 @@ It is highly recommended that you create a virtual environment dedicated to this
 Input the address http://127.0.0.1:8050/, you should be able to see the dashboard. 
 If error messages occur, try refreshing the page. 
 
-##Quick Overview of the Website 
+## Quick Overview of the Website 
 
 
 ![Alt Text](Readme/website_gif.gif)
